@@ -1,8 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.Console", "MazeGenerator.Console\MazeGenerator.Console.csproj", "{C9E162FC-06EC-4597-B2CE-6A9F264F8740}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.Bll", "MazeGenerator.Bll\MazeGenerator.Bll.csproj", "{B36643B6-32F2-41B2-B2A6-AFA353C22640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGenerator.UnitTests", "MazeGenerator.UnitTests\MazeGenerator.UnitTests.csproj", "{F918D234-4D69-4EF5-B850-1019EBEA31DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9E162FC-06EC-4597-B2CE-6A9F264F8740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9E162FC-06EC-4597-B2CE-6A9F264F8740}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9E162FC-06EC-4597-B2CE-6A9F264F8740}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9E162FC-06EC-4597-B2CE-6A9F264F8740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B36643B6-32F2-41B2-B2A6-AFA353C22640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B36643B6-32F2-41B2-B2A6-AFA353C22640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B36643B6-32F2-41B2-B2A6-AFA353C22640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B36643B6-32F2-41B2-B2A6-AFA353C22640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F918D234-4D69-4EF5-B850-1019EBEA31DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F918D234-4D69-4EF5-B850-1019EBEA31DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F918D234-4D69-4EF5-B850-1019EBEA31DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F918D234-4D69-4EF5-B850-1019EBEA31DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
