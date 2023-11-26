@@ -4,4 +4,7 @@
     &lt;Namespace&gt;MazeGenerator.UnitTests.Generators&lt;/Namespace&gt;
     &lt;Project Location="/home/aleksey/_projects/MazeGenerator/MazeGenerator.UnitTests" Presentation="&amp;lt;MazeGenerator.UnitTests&amp;gt;" /&gt;
   &lt;/And&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=bb81c42e_002D9ac1_002D42fc_002Da492_002D87da6f7611dd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;MazeGenerator.UnitTests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Lekha\_projects\MazeGenerator\MazeGenerator.UnitTests" Presentation="&amp;lt;MazeGenerator.UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

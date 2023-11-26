@@ -1,9 +1,10 @@
+using System.Security.Cryptography.X509Certificates;
 using MazeGenerator.Bll.Interfaces;
 using MazeGenerator.Bll.Models;
 
 namespace MazeGenerator.Bll.Generators;
 
-public class MazeLineGenerator
+public class MazeLineGenerator : IMazeLineGenerator
 {
     private readonly IRandomProvider _randomProvider;
 
@@ -24,11 +25,40 @@ public class MazeLineGenerator
         return cells;
     }
 
+    public MazeCell[] GenerateNextLine(MazeCell[] previousCells)
+    {
+        var cells = new MazeCell[previousCells.Length];
+
+        for (var i = 0; i < cells.Length; i++)
+        {
+            cells[i] = previousCells[i];
+            cells[i].RightWall = false;
+            if (cells[i].BottomWall)
+            {
+                cells[i].Area = 0;
+            }
+        }
+
+        var areaToSet = 1;
+        for (var i = 0; i < cells.Length; i++)
+        {
+            if (cells[i].Area == 0)
+            {
+                cells[i].Area = areaToSet;
+            }
+
+            areaToSet = cells[i].Area + 1;
+            cells[i].BottomWall = false;
+        }
+        
+        return cells;
+    }
+
     public MazeCell[] BuildRightWalls(MazeCell[] cells)
     {
         for (var i = 1; i < cells.Length; i++)
         {
-            var buildWall = _randomProvider.Next(3) == 2;
+            var buildWall = _randomProvider.BuildRightWall();
             // todo: Check & fix
             if (buildWall /*|| cells[i].Area == cells[i + 1].Area*/)
             {
@@ -38,7 +68,7 @@ public class MazeLineGenerator
             {
                 var areaToChange = cells[i].Area;
                 var areaToSet = cells[i - 1].Area;
-                for (int j = 0; j <= i; j++)
+                for (var j = 0; j <= i; j++)
                 {
                     if (areaToChange == cells[j].Area)
                     {
@@ -60,7 +90,7 @@ public class MazeLineGenerator
         var previousArea = -1;
         var wasExitToBottom = false;
 
-        for (int i = 0; i < cells.Length; i++)
+        for (var i = 0; i < cells.Length; i++)
         {
             if (cells[i].Area != previousArea)
             {
@@ -72,8 +102,8 @@ public class MazeLineGenerator
                 previousArea = cells[i].Area;
                 wasExitToBottom = false;
             }
-            
-            var buildWall = _randomProvider.Next(3) == 2;
+
+            var buildWall = _randomProvider.BuildBottomWall();
             cells[i].BottomWall = buildWall;
             if (!buildWall)
             {

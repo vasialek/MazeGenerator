@@ -48,7 +48,8 @@ public class MazeLineGeneratorTests
             new MazeCell { Area = 7 },
             new MazeCell { Area = 8 }
         };
-        _randomProvider.Next(3).Returns(0, 1, 2, 0, 2, 0, 1, 0);
+        _randomProvider.BuildRightWall().Returns(false, false, true, false, true, false, false, false);
+        // _randomProvider.Next(3).Returns(1, 1, 0, 1, 0, 2, 1, 2);
 
         var actual = _generator.BuildRightWalls(cells);
 
@@ -80,7 +81,8 @@ public class MazeLineGeneratorTests
             new MazeCell { Area = 6 },
             new MazeCell { Area = 6 }
         };
-        _randomProvider.Next(3).Returns(1, 2, 2, 2, 0, 2, 1, 0);
+        _randomProvider.BuildBottomWall().Returns(false, true, true, true, false, true, false, false);
+        // _randomProvider.Next(3).Returns(1, 0, 0, 0, 1, 0, 1, 2);
 
         var actual = _generator.BuildBottomWalls(cells);
         
@@ -94,6 +96,36 @@ public class MazeLineGeneratorTests
             new() { Area = 6 },
             new() { Area = 6 },
             new() { Area = 6, BottomWall = true, }
+        });
+    }
+
+    [Fact]
+    public void CanGenerateNextLine()
+    {
+        var cells = new MazeCell[]
+        {
+            new() { Area = 1 },
+            new() { Area = 1, BottomWall = true },
+            new() { Area = 1, BottomWall= true },
+            new() { Area = 4 },
+            new() { Area = 4, BottomWall = true },
+            new() { Area = 6 },
+            new() { Area = 6 },
+            new() { Area = 6, BottomWall = true, }
+        };
+
+        var actual = _generator.GenerateNextLine(cells);
+
+        actual.Should().BeEquivalentTo(new MazeCell[]
+        {
+            new() { Area = 1 },
+            new() { Area = 2 },
+            new() { Area = 3 },
+            new() { Area = 4 },
+            new() { Area = 5 },
+            new() { Area = 6 },
+            new() { Area = 6 },
+            new() { Area = 7 }
         });
     }
 }

@@ -7,4 +7,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\MazeGenerator.Bll\MazeGenerator.Bll.csproj" />
+    </ItemGroup>
+
 </Project>
